@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :person, only:[:show, :edit, ]
+  before_action :person, only:[:show, :edit, :destroy, :update]
   # before_action :
   # before_action :
 
@@ -16,10 +16,10 @@ class PeopleController < ApplicationController
   end
 
   def create
-  	@city = City.new(city_params)
-    if @city.save
-      flash[:success] = "City with name: #{@city.name} created!"
-      redirect_to city_path(@city)
+  	@person = Person.new(person_params)
+    if @person.save
+      # flash[:success] = "#{person.name}, you have taken your first step toward love!"
+      redirect_to person_path(@person)
     else
       render :new
     end
@@ -30,15 +30,15 @@ class PeopleController < ApplicationController
   
 
   def destroy
-  	person_name = @person.name
+  	# person = @person
     @person.destroy
-    flash[:success] = "Your profile has now been deleted #{person.name}"
-    redirect_to person_path
+    # flash[:success] = "Your profile has now been deleted #{person.name}"
+    redirect_to people_path
   end
 
   def update
   	 if @person.update(person_params)
-      flash[:success] = "Your profile has now been updated!"
+      # flash[:success] = "Your profile has now been updated!"
       redirect_to person_path(@person)
     else
       render :edit
@@ -46,7 +46,7 @@ class PeopleController < ApplicationController
  	end
 	private
 		def person_params
-			params.require(:person).permit(:person, :name, :age)
+			params.require(:person).permit(:name, :age)
 		end
 
 		def person

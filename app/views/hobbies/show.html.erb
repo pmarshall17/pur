@@ -1,0 +1,15 @@
+<h1> Your List of Purrfect Hobbies </h1>
+<hr/>
+<h1>Music: <%= @hobby.music %></h1>
+<h1>TV: <%= @hobby.tv %></h1>
+<h1>Activities: <%= @hobby.activities %></h1>
+<hr />
+
+<%= link_to 'Edit', edit_person_hobby_path(@person, @hobby) %>
+
+<%= link_to 'Delete', person_hobby_path(@person, @hobby), method: :delete, data: {confirm: 'Really delete?'} %>
+
+<%= link_to "Your Profile", person_hobbies_path(@person) %>
+
+<%= link_to 'All Lesbians', people_path %>
+

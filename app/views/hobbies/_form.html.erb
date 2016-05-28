@@ -1,0 +1,12 @@
+<%= form_for [@person, @hobby] do |f| %>
+  <%= f.label :music %>
+  <%= f.text_field :music %>
+
+  <%= f.label :tv %>
+  <%= f.text_field :tv %>
+
+  <%= f.label :activities %>
+  <%= f.text_field :activities %>
+  
+  <%= f.submit %>
+<% end %>

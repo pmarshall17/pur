@@ -1,2 +1,20 @@
-<h1>People#index</h1>
-<p>Find me in app/views/people/index.html.erb</p>
+<h1>Welcome to Pur</h1>
+<h3>The online dating app exclusively for you and that other love interest in your life</h3>
+
+<% if @person.any? %>
+  <ul>
+    <% @person.each do |person| %>
+      <li>
+        <%= link_to person.name, person_path(person) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>You have not created your profile yet, please create one!</h3>
+<% end %>
+
+<hr />
+
+<%= link_to 'New Profile', new_person_path %>
+
+
