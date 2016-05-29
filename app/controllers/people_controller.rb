@@ -1,8 +1,5 @@
 class PeopleController < ApplicationController
   before_action :person, only:[:show, :edit, :destroy, :update]
-  # before_action :
-  # before_action :
-
 
   def index
   	@person = Person.all
@@ -18,6 +15,7 @@ class PeopleController < ApplicationController
   def create
   	@person = Person.new(person_params)
     if @person.save
+      $pur_profiles << @person.name
       # flash[:success] = "#{person.name}, you have taken your first step toward love!"
       redirect_to person_path(@person)
     else
