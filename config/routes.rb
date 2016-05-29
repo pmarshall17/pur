@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
-	root 'people#index'
+root 'people#index'
 
   resources :people do
-  	resources :hobbies, :location
+  	resources :location, :hobbies
   end
 end

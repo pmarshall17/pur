@@ -1,15 +1,24 @@
 <h1>
-	Welcome <%= @person.name%>, you have taken your first step towards your Purrrrfect match...Congratulations!
-</h1>
-
+	Welcome <%= @person.name%>!
+</h1> 
 <h2>
-	Now, we know you are <%= @person.age%> years old. But we want to know more!
+Congratulations on taking your first step towards your Purrrrfect match...
 </h2>
 
-<%= link_to 'Purrrrsonal Hobbies', person_hobbies_path(@person) %>
+<h2>
+	We know you are <%= @person.age%> years old. But, please tell us more by finishing your profile here!
+</h2>
 
+<%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
+<br/>
+
+
+<%= link_to 'Personal Location', person_location_index_path(@person) %>
+<br/>
 
 <%= link_to 'EDIT', edit_person_path(@person) %>
-<%= link_to 'DELETE', person_path(@person), method: :delete, data: {confirm: 'Really delete?'} %>
-<%= link_to 'ALL LESBIANS', people_path %>
+<br/>
+<%= link_to 'DELETE', person_path(@person), method: :delete, data: {confirm: 'Sure you wanna delete, bro?'} %>
+<br/>
+<%= link_to 'Back to Main Menu', people_path %>
 
