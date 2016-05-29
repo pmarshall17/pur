@@ -1,4 +1,4 @@
-<h1> Your List of Purrfect Hobbies </h1>
+<h1> Your List of Purrfect Hobbies, <%=@person.name%> </h1>
 <hr/>
 <h1>Music: <%= @hobby.music %></h1>
 <h1>TV: <%= @hobby.tv %></h1>
@@ -9,7 +9,7 @@
 
 <%= link_to 'Delete', person_hobby_path(@person, @hobby), method: :delete, data: {confirm: 'Really delete?'} %>
 
-<%= link_to "Your Profile", person_hobbies_path(@person) %>
+<%= link_to 'Personal Locations', new_person_location_path(@person) %>
 
-<%= link_to 'All Lesbians', people_path %>
+<%= link_to 'All Profiles', people_path %>
 

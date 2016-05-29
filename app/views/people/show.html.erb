@@ -12,13 +12,14 @@ Congratulations on taking your first step towards your Purrrrfect match...
 <%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
 <br/>
 
-
-<%= link_to 'Personal Location', person_location_index_path(@person) %>
+<%= link_to 'Personal Locations', new_person_location_path(@person) %>
 <br/>
 
 <%= link_to 'EDIT', edit_person_path(@person) %>
 <br/>
+
 <%= link_to 'DELETE', person_path(@person), method: :delete, data: {confirm: 'Sure you wanna delete, bro?'} %>
 <br/>
+
 <%= link_to 'Back to Main Menu', people_path %>
 
