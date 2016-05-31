@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   before_action :location, only: [:show, :edit, :update, :destroy]
 
   def index
-    @locations = @person.locations
+    @location = @person.location
   end
 
   def show
@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = @person.locations.new(location_params)
+    @location = @person.create_location(location_params)
     if @location.save
       redirect_to person_location_path(@person, @location)
     else
@@ -24,7 +24,7 @@ class LocationsController < ApplicationController
   end
   
   def update
-    @person = @person.locations.find(params[:id])
+   
     if @location.update(location_params)
       redirect_to person_location_path(@person, @location)
     else
@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
   
   def destroy
     @location.destroy
-    redirect_to person_locations_path(@person)
+    redirect_to person_path(@person)
   end
 
 

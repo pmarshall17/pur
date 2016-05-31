@@ -3,7 +3,7 @@ class HobbiesController < ApplicationController
   before_action :hobby, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@hobbies = @person.hobbies
+  	@hobby = @person.hobby
   end
 
   def show
@@ -14,7 +14,7 @@ class HobbiesController < ApplicationController
   end
   
   def create
-	  @hobby = @person.hobbies.new(hobby_params)
+	  @hobby = @person.create_hobby(hobby_params)
 	  if @hobby.save
 	    # flash[:success] = "hobby with name #{@hobby.name} created!"
 	    redirect_to person_hobby_path(@person, @hobby)
@@ -24,7 +24,6 @@ class HobbiesController < ApplicationController
   end
 
   def update
-    @person = @person.hobbies.find(params[:id])
     if @hobby.update(hobby_params)
       # flash[:success] = "hobby with name: #{@hobby.name} updated!"
       redirect_to person_hobby_path(@person, @hobby)
@@ -41,7 +40,7 @@ class HobbiesController < ApplicationController
   def destroy  
   	# hobby_name = @hobby.name
   	@hobby.destroy
-  	redirect_to person_hobbies_path(@person)
+  	redirect_to person_path(@person)
   end
 
   private

@@ -2,15 +2,10 @@
 
 <hr />
 
-<% if @locations.any? %>
-  <ul>
-    <% @locations.each do |location| %>
-      <li>
-        <%= location.city %>
-        <%= location.state %>
-      </li>
-    <% end %>
-  </ul>
+<% if @location %>
+  
+        <%= @location.city %>
+        <%= @location.state %>
 <% else %>
   <h3>No location, please add one!</h3>
 <% end %>

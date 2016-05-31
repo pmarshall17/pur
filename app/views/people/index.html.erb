@@ -1,11 +1,11 @@
 <h1>Welcome to Pur</h1>
 <h2>The online dating app to help you find your purrfect match</h2>
 
-<% if @person.any? %>
+<% if @people.any? %>
   <ul>
-    <% @person.each do |person| %>
+    <% @people.each do |person| %>
       <li>
-        <%= link_to person.name, person_path(person) %>
+        <%= link_to "#{person.name}", person_path(person) %>
       </li>
     <% end %>
   </ul>
@@ -16,5 +16,6 @@
 <hr />
 
 <%= link_to 'New Profile', new_person_path %>
+
 
 

@@ -1,15 +1,8 @@
 <h1>
 	Welcome <%= @person.name %>!
 </h1> 
+<% if !(@person.hobby && @person.location) %>
 
-<% if @person.hobbies.any? || @person.locations.any? %>
-	<%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
-<br/>
-
-<%= link_to 'Personal Location', person_locations_path(@person) %>
-<br/>
-
-<% else %>
 	<h2>
 		Congratulations on taking your first step towards your Purrrrfect match...
 	</h2>
@@ -17,11 +10,21 @@
 	<h2>
 	  We know you are <%= @person.age%> years old. But, please tell us more by finishing your profile here!
 	</h2>
+<% end %>
 
-	<%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
+<% if @person.hobby %>
+	<%= link_to 'Personal Hobbies', person_hobby_path(@person, @person.hobby) %>
+  <br/>
+<% else %>
+	<%= link_to 'Add Hobbies', new_person_hobby_path(@person) %>
 	<br/>
+<% end %>
 
-	<%= link_to 'Personal Location', person_locations_path(@person) %>
+<% if @person.location %>
+  <%= link_to 'Personal Location', person_location_path(@person, @person.location) %>
+  <br/>
+<% else %>
+  <%= link_to 'Add Location', new_person_location_path(@person) %>
 	<br/>
 <% end %>
 
@@ -32,4 +35,7 @@
 <br/>
 
 <%= link_to 'Back to Main Menu', people_path %>
+<br/>
+
+ <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Sure you wanna leave?'} %>
 

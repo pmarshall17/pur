@@ -1,21 +1,18 @@
 <h1>Your Hobbies</h1>
-<% if @hobbies.any? %>
-  <ul style="list-style-type:none">
-    <% @hobbies.each do |hobby| %>
-      <li>
-        Music: <%= hobby.music %><br />
-        TV: <%= hobby.tv %><br />
-        Activites: <%= hobby.activities %>
-      </li>
-    <% end %>
-  </ul>
+<p>
+<% if @hobby %>
+
+  Music: <%= @hobby.music %><br />
+  TV: <%= @hobby.tv %><br />
+  Activites: <%= @hobby.activities %>
 <% else %>
   <h3>No hobbies, please add one!</h3>
 <% end %>
+</p>
 
 <hr />
 
 
-<%= link_to 'Edit Hobbies', edit_person_hobby_path(@person, @hobbies) %>
+<%= link_to 'Edit Hobbies', edit_person_hobby_path(@person, @hobby) %>
 <%= link_to 'New Hobbies', new_person_hobby_path(@person) %>
 <%= link_to 'Back', person_path(@person) %>

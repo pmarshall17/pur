@@ -1,9 +1,9 @@
 class PeopleController < ApplicationController
-  before_action :person, only:[:show, :edit, :destroy, :update]
+  before_action :person, only:[:edit, :destroy, :update]
   # $pur_profiles = []
 
   def index
-  	@person = Person.all
+  	@people = Person.all
   end
 
   def new
@@ -14,8 +14,10 @@ class PeopleController < ApplicationController
   end
 
   def create
-  	@person = Person.new(person_params)
+  	@person = current_user.create_person(person_params)
     if @person.save
+      # session[:person_id] = @person.id
+      # redirect_to accounts_show_path
       # $pur_profiles << @person.name
       # flash[:success] = "#{person.name}, you have taken your first step toward love!"
       redirect_to person_path(@person)
@@ -25,6 +27,7 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @person = current_user.person
   end
   
 
@@ -45,7 +48,7 @@ class PeopleController < ApplicationController
  	end
 	private
 		def person_params
-			params.require(:person).permit(:name, :age)
+			params.require(:person).permit(:name, :age, :user_id)
 		end
 
 		def person
