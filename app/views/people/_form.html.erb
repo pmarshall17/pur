@@ -1,9 +1,13 @@
+<div class="form_div">
 <%= form_for @person do |f| %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
   <%= f.label :age %>
   <%= f.text_field :age %>
-  
+  <p class="waves-effect waves-light btn red">
   <%= f.submit %>
-<% end %>
+  </p>
+  <% end %>
+</div>

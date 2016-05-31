@@ -1,20 +1,25 @@
+<div class="center">
+  <p class="waves-effect waves-light btn red" class="center" >
+    <%= link_to 'New Profile', new_person_path %>
+  </p>
+</div>
+
+
 <p class="header">Welcome to Pur</p>
 <p class="people_greeting">The online dating app to help you find your purrfect match</p>
 
 <% if @person.any? %>
-  <ul>
-    <% @person.each do |person| %>
-      <li>
-        <%= link_to person.name, person_path(person) %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="index_list">
+    <ul>
+      <% @person.each do |person| %>
+        <li>
+          <%= link_to person.name, person_path(person) %>
+        </li>
+      <% end %>
+    </ul>
+  </div
 <% else %>
   <h3>You have not created your profile yet, please create one!</h3>
 <% end %>
 
 <hr />
-
-<div class="waves-effect waves-light btn red">
-<%= link_to 'New Profile', new_person_path %>
-</div>
