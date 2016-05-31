@@ -1,10 +1,11 @@
+<h1>Your Hobbies</h1>
 <% if @hobbies.any? %>
-  <ul>
+  <ul style="list-style-type:none">
     <% @hobbies.each do |hobby| %>
       <li>
-        <%= hobby.music %>
-        <%= hobby.tv %>
-        <%= hobby.activities %>
+        Music: <%= hobby.music %><br />
+        TV: <%= hobby.tv %><br />
+        Activites: <%= hobby.activities %>
       </li>
     <% end %>
   </ul>
@@ -15,5 +16,6 @@
 <hr />
 
 
+<%= link_to 'Edit Hobbies', edit_person_hobby_path(@person, @hobbies) %>
 <%= link_to 'New Hobbies', new_person_hobby_path(@person) %>
 <%= link_to 'Back', person_path(@person) %>
