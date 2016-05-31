@@ -1,5 +1,5 @@
-<h1>Welcome to Pur</h1>
-<h2>The online dating app to help you find your purrfect match</h2>
+<p class="header">Welcome to Pur</p>
+<p class="people_greeting">The online dating app to help you find your purrfect match</p>
 
 <% if @person.any? %>
   <ul>
@@ -15,6 +15,6 @@
 
 <hr />
 
+<div class="waves-effect waves-light btn red">
 <%= link_to 'New Profile', new_person_path %>
-
-
+</div>

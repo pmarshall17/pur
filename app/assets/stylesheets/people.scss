@@ -1,3 +1,20 @@
-// Place all the styles related to the people controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.peoplediv {
+  align-content: center;
+  color: white !important;
+}
+
+a {
+    color: white !important;
+}
+
+.header{
+  font-size: 100px;
+  text-align: center;
+}
+
+.people_greeting {
+  font-size: 30px;
+  text-align: center;
+  margin-top: -100px;
+
+}

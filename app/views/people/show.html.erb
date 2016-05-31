@@ -1,6 +1,7 @@
+
 <h1>
 	Welcome <%= @person.name %>!
-</h1> 
+</h1>
 
 <% if @person.hobbies.any? || @person.locations.any? %>
 	<%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
@@ -18,18 +19,29 @@
 	  We know you are <%= @person.age%> years old. But, please tell us more by finishing your profile here!
 	</h2>
 
-	<%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
-	<br/>
 
-	<%= link_to 'Personal Location', person_locations_path(@person) %>
-	<br/>
-<% end %>
+<div class="center">
+	<div class="waves-effect waves-light btn red blue-text">
+		<%= link_to 'Personal Hobbies', person_hobbies_path(@person) %>
+	</div>
 
-<%= link_to 'EDIT', edit_person_path(@person) %>
-<br/>
+	<div id="div_color" class="waves-effect waves-light btn red">
+		<%= link_to 'Personal Location', person_locations_path(@person) %>
+	</div>
 
-<%= link_to 'DELETE', person_path(@person), method: :delete, data: {confirm: 'Sure you wanna delete?'} %>
-<br/>
+	<% end %>
 
-<%= link_to 'Back to Main Menu', people_path %>
+	<div id="div_color" class="waves-effect waves-light btn red">
+		<%= link_to 'EDIT', edit_person_path(@person) %>
+	</div>
 
+
+	<div id="div_color" class="waves-effect waves-light btn red">
+			<%= link_to 'DELETE', person_path(@person), method: :delete, data: {confirm: 'Sure you wanna delete?'} %>
+	</div>
+
+
+	<div id="div_color" class="waves-effect waves-light btn red">
+			<%= link_to 'Back to Main Menu', people_path %>
+	</div>
+</div>

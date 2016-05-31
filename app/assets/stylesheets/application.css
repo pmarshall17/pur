@@ -14,12 +14,13 @@
  *= require_self
  */
 
-html {
-	background-color: teal;
+* {
+	background-color: gray;
+	font-family: firasans-hair !important;
 }
 
 h1 {
-	color: purple;
+	color: white;
 	text-align: center;
 }
 
@@ -36,4 +37,6 @@ h3 {
 	text-align: center;
 }
 
-
+a {
+    color: white;
+}
