@@ -1,13 +1,23 @@
-<h1>Locations#index</h>
+<h1>Your Location,<%= @person.name %>:</h1>
 
-<%= form_for [@person, @location] do |f| %>
-  
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  
-  <%= f.label :state %>
-  <%= f.text_field :state %>
-  
-  <%= f.submit %>
+<hr />
 
+<% if @locations.any? %>
+  <ul>
+    <% @locations.each do |location| %>
+      <li>
+        <%= location.city %>
+        <%= location.state %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>No location, please add one!</h3>
 <% end %>
+
+<hr />
+
+
+<%= link_to 'New Location', new_person_location_path(@person) %>
+<%= link_to 'Edit', edit_person_location_path(@person, @location) %>
+<%= link_to 'Back', person_path(@person) %>

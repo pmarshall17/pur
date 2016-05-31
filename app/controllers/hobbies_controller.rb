@@ -49,13 +49,11 @@ class HobbiesController < ApplicationController
   			params.require(:hobby).permit(:music, :tv, :activities)
   	end
 
-   #  def location
-   #  @location = @person.location.find(params[:id])
-   # end
+   
 
 
     def hobby
-      @hobby = Hobby.find(params[:id])
+      @hobby = Hobby.find_by_id(params[:id])
     end
 
     def person

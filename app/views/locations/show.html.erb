@@ -1,2 +1,14 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+
+<h1> Your Location: </h1>
+<hr/>
+<h1>City: <%= @location.city %></h1>
+<h1>State: <%= @location.state %></h1>
+<hr />
+
+<%= link_to 'Edit', edit_person_location_path(@person, @location) %>
+
+<%= link_to 'Delete', person_location_path(@person, @location), method: :delete, data: {confirm: 'Really delete?'} %>
+
+<%= link_to 'Back', person_path(@person) %>
+
+<%= link_to 'All Profiles', people_path %>

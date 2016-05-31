@@ -1,15 +1,5 @@
 <h1>Purrrfect your profile, <%= @person.name %>:</h1>
 
-<P>Please enter your general location to better serve your matching needs!</P>
+<p>Please enter your general location to better serve your matching needs!</p>
 
-<%= form_for [@person, @location] do |f| %>
-  
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  
-  <%= f.label :state %>
-  <%= f.text_field :state %>
-  
-  <%= f.submit %>
-
-<% end %>
+<%= render(partial: 'form') %>

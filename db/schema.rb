@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160529192210) do
   create_table "locations", force: :cascade do |t|
     t.string   "city"
     t.string   "state"
+    t.integer  "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -24,11 +24,15 @@ class LocationsController < ApplicationController
   end
   
   def update
+    @person = @person.locations.find(params[:id])
     if @location.update(location_params)
       redirect_to person_location_path(@person, @location)
     else
       render :edit
     end
+  end
+
+  def edit
   end
   
   def destroy
@@ -40,16 +44,15 @@ class LocationsController < ApplicationController
 
 private
 
-def location_params
-  params.require(:location).permit(:city, :state)
-end
-
-def location
-  @location = @person.locations.find(params[:id])
-end
-
-def person
-  @person = Person.find(params[:person_id])
-end
-
+  def location_params
+    params.require(:location).permit(:city, :state)
+  end
+  
+  def location
+    @location = Location.find_by_id(params[:id])
+  end
+  
+  def person
+    @person = Person.find(params[:person_id])
+  end
 end
