@@ -3,7 +3,12 @@ class PeopleController < ApplicationController
   # $pur_profiles = []
 
   def index
-  	@people = Person.all
+    @people = Person.all
+    if params[:search]
+      @people = Person.search(params[:search]).order("created_at DESC")
+    else
+      @people = Person.all.order('created_at DESC')
+    end
   end
 
   def new
@@ -18,7 +23,7 @@ class PeopleController < ApplicationController
     if @person.save
       # session[:person_id] = @person.id
       # redirect_to accounts_show_path
-      # $pur_profiles << @person.name
+      # $pur_profiles << @person
       # flash[:success] = "#{person.name}, you have taken your first step toward love!"
       redirect_to person_path(@person)
     else

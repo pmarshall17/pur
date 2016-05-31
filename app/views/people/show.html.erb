@@ -34,8 +34,6 @@
 <%= link_to 'DELETE', person_path(@person), method: :delete, data: {confirm: 'Sure you wanna delete?'} %>
 <br/>
 
-<%= link_to 'Back to Main Menu', people_path %>
-<br/>
+<%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Sure you wanna leave?'} %>
 
- <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Sure you wanna leave?'} %>
 
